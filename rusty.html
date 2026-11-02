@@ -132,6 +132,20 @@
         flex-flow: column;
       }
 
+      .filters {
+        height: 100%;
+        width: 100%;
+        background: none;
+        backdrop-filter: blur(1vw) brightness(0.75) grayscale(0.25);
+        transition: backdrop-filter 0.75s;
+        display: flex;
+        position: absolute;
+      }
+
+      .filters:hover {
+        backdrop-filter: blur(0px) brightness(1) grayscale(0);
+      }
+
       .content-1 {
         height: 100%;
         width: 100%;
@@ -144,25 +158,19 @@
         justify-content: center;
         align-items: center;
         position: relative;
+        overflow: hidden;
       }
 
       .content-1 img {
         transition: filter 0.75s;
-        filter: blur(2px) brightness(0.75) grayscale(0.25);
         height: 100%;
         width: 100%;
         object-fit: cover;
-        border-radius: inherit;
-      }
-
-      .content-1 img:hover {
-        filter: blur(0px) brightness(1) grayscale(0);
       }
 
       .videotainer {
         height: 100%;
         width: 100%;
-        border-radius: inherit;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -170,15 +178,9 @@
 
       .videotainer video {
         transition: filter 0.75s;
-        filter: blur(2px) brightness(0.75) grayscale(0.25);
         height: 100%;
         width: 100%;
         object-fit: cover;
-        border-radius: inherit;
-      }
-
-      .videotainer video:hover {
-        filter: blur(0px) brightness(1) grayscale(0);
       }
     </style>
   </head>
@@ -212,13 +214,17 @@
       </div>
       <div class="glassbox">
         <div class="col">
-          <div class="content-1"><img src="images/BlissHD.png" /></div>
+          <div class="content-1">
+            <img src="images/BlissHD.png" />
+            <div class="filters"></div>
+          </div>
           <div class="content-1">
             <div class="videotainer">
               <video id="basevideo" width="320" height="240" onloadstart="this.volume=0.05">
                 <source src="videos\Queen of Venus ft. Adachi Rei.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+              <div class="filters"></div>
               <!-- add buttons -->
               <div class="btntainer">
                 <button class="playpause" onclick="playPause()">
